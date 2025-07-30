@@ -6,19 +6,6 @@ from tint.models import Net
 import torch.nn.functional as F
 from torch.special import gammaln  # For computing log Beta function
 
-def beta_kl_loss(mask, a=0.5, b=0.5, eps=1e-8):
-    """
-    Computes a KL divergence loss for the mask, encouraging it to match a Beta(a,b) distribution.
-    This loss is defined as:
-        L_KL = log B(a,b) - (a-1)*log(mask) - (b-1)*log(1-mask)
-    where B(a,b) is the Beta function.
-    """
-    mask = mask.clamp(eps, 1 - eps)
-    logB = gammaln(th.tensor(a)) + gammaln(th.tensor(b)) - gammaln(th.tensor(a+b))
-    loss = logB - (a - 1) * th.log(mask) - (b - 1) * th.log(1 - mask)
-    return loss.mean()
-
-
 class MCExtremalMaskNN(nn.Module):
     """
     MC Extremal Mask NN model.
