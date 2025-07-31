@@ -1,6 +1,6 @@
 ## Monte Carlo ExtremalMask: Uncertainty-aware Time-series Model Interpretability for Critical Care Applications
 
-This repository provides an implementation of **Monte Carlo Extremal Mask (MCExtremalMask)**, a model-agnostic attribution method for time series data. The method estimates attribution scores and their uncertainty using Monte Carlo Dropout via multiple perturbation-based passes through the model.
+This repository provides an implementation of **Monte Carlo Extremal Mask (MCExtremalMask)**, a model-agnostic attribution method for time series data. The method estimates attribution scores and their uncertainty using Monte Carlo Dropout via multiple perturbation-based passes through the model. This repository builds on and extends the [time_interpret](https://github.com/josephenguehard/time_interpret) library.
 
 ---
 
